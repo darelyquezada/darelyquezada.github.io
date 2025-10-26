@@ -57,12 +57,12 @@ form.addEventListener("submit", async (e) => {
       const cuenta = data.usuario?.cuenta;
       if (cuenta) {
         Swal.fire({
-                            icon: 'success',
-                            title: '¡Acceso Permitido!',
-                            text: `Bienvenido, ${cuenta}.`,
-                            showConfirmButton: false,
-                            timer: 2000
-                        });
+            icon: 'success',
+            title: '¡Acceso Permitido!',
+            text: `Bienvenido, ${cuenta}.`,
+            showConfirmButton: false,
+            timer: 2000
+        });
         console.log("Usuario recibido:", data.usuario);
         // mostrar el nombre junto al candado
         const userNameSpan = document.getElementById('userName');
@@ -74,18 +74,18 @@ form.addEventListener("submit", async (e) => {
         // Caso inesperado: 200 OK pero sin usuario en body
         console.warn('200 OK sin usuario:', data);
         Swal.fire({
-                            icon: 'error',
-                            title: 'Error de Servidor',
-                            text: 'Respuesta incompleta del servidor. No se pudo verificar el usuario.'
-                        });
+            icon: 'error',
+            title: 'Error de Servidor',
+            text: 'Respuesta incompleta del servidor. No se pudo verificar el usuario.'
+        });
       }
     } else {
       // Respuesta de error: mostrar mensaje si viene en el body
       Swal.fire({
-                        icon: 'warning',
-                        title: 'Fallo al Iniciar Sesión',
-                        text: errorMessage
-                    });
+          icon: 'warning',
+          title: 'Fallo al Iniciar Sesión',
+          text: errorMessage
+      });
       // limpiar los campos del formulario tras error
       const loginInput = document.getElementById("login");
       const passInput = document.getElementById("password");
@@ -96,9 +96,9 @@ form.addEventListener("submit", async (e) => {
   } catch (err) {
     console.error("Error al conectar con el servidor:", err);
     Swal.fire({
-                    icon: 'error',
-                    title: 'Error de Conexión',
-                    text: 'No se pudo conectar con el servidor. Verifica que esté activo.'
-                });
+        icon: 'error',
+        title: 'Error de Conexión',
+        text: 'No se pudo conectar con el servidor. Verifica que esté activo.'
+    });
   }
 });
